@@ -1,5 +1,8 @@
 package com.pointwest.workforce.planner.domain;
 
+import java.sql.Timestamp;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,6 +23,14 @@ public class Activity {
 	@Column(name="is_custom")
 	private boolean isCustom;
 
+	private Double durationInWeeks;
+	
+	private Double durationInMonths;
+	
+	private Timestamp activityStartDate;
+	
+	private List<ResourceSpecification> resourceSpecificationList;
+	
 	public int getActivityId() {
 		return activityId;
 	}
@@ -42,6 +53,38 @@ public class Activity {
 
 	public void setCustom(boolean isCustom) {
 		this.isCustom = isCustom;
+	}
+
+	public Double getDurationInWeeks() {
+		return durationInWeeks;
+	}
+
+	public void setDurationInWeeks(Double durationInWeeks) {
+		this.durationInWeeks = durationInWeeks;
+	}
+
+	public Double getDurationInMonths() {
+		return durationInMonths;
+	}
+
+	public void setDurationInMonths(Double durationInMonths) {
+		this.durationInMonths = durationInMonths;
+	}
+
+	public Timestamp getActivityStartDate() {
+		return activityStartDate;
+	}
+
+	public void setActivityStartDate(Timestamp activityStartDate) {
+		this.activityStartDate = activityStartDate;
+	}
+
+	public List<ResourceSpecification> getResourceSpecificationList() {
+		return resourceSpecificationList;
+	}
+
+	public void setResourceSpecificationList(List<ResourceSpecification> resourceSpecificationList) {
+		this.resourceSpecificationList = resourceSpecificationList;
 	}
 	
 	
