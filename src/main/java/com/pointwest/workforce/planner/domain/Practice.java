@@ -6,15 +6,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity
+//@Entity
 public class Practice {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name="practice_id")
+//	@Id
+//	@GeneratedValue(strategy = GenerationType.AUTO)
+//	@Column(name="practice_id")
 	private int practiceId;
 	
-	@Column(name="practice_name")
+//	@Column(name="practice_name")
 	private String practiceName;
 
 	public int getPracticeId() {

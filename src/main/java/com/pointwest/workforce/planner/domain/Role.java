@@ -6,15 +6,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity
+//@Entity
 public class Role {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name="role_id")
+//	@Id
+//	@GeneratedValue(strategy = GenerationType.AUTO)
+//	@Column(name="role_id")
 	private int roleId;
 	
-	@Column(name="role_name")
+//	@Column(name="role_name")
 	private String roleName;
 
 	public int getRoleId() {

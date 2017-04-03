@@ -9,18 +9,18 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity
+//@Entity
 public class Activity {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name="activity_id")
+//	@Id
+//	@GeneratedValue(strategy = GenerationType.AUTO)
+//	@Column(name="activity_id")
 	private int activityId;
 	
-	@Column(name="activity_name")
+//	@Column(name="activity_name")
 	private String activityName;
 	
-	@Column(name="is_custom")
+//	@Column(name="is_custom")
 	private boolean isCustom;
 
 	private Double durationInWeeks;

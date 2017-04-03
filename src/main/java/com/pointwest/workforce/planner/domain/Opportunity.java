@@ -1,43 +1,70 @@
 package com.pointwest.workforce.planner.domain;
 
 import java.sql.Timestamp;
-import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="opportunity")
 public class Opportunity {
 	
-	private int opportunityId;
+	public Opportunity() {
+		
+	}
+
+	@Id
+	@Column(name="opportunity_id")
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long opportunityId;
 	
+	@Column(name="opportunity_name")
 	private String opportunityName;
 	
+	@OneToOne
+	@JoinColumn(name="market_circle_id")
 	private MarketCircle marketCircle;
 	
+	@OneToOne
+	@JoinColumn(name="service_line_id")
 	private ServiceLine serviceLine;
 	
+	@Column(name="opportunity_duration_granularity")
 	private String durationGranularity;
 	
+	@Column(name="opportunity_duration_week")
 	private double durationInWeeks;
 	
-	private double durationInMonths;
-	
+	@Column(name="opportunity_start_date")
 	private Timestamp projectStartDate;
 	
-	private String projectStatus;
+	@Column(name="opportunity_status")
+	private String opportunityStatus;
 	
+	@Column(name="opportunity_document_status")
 	private String documentStatus;
 	
+	@Column(name="opportunity_client_name")
 	private String clientName;
 	
-	private String projectSite;
-	
+	@Column(name="opportunity_project_alias")
 	private String projectAlias;
 	
-	private List<Activity> activities;
+	//@OneToMany
+	//@JoinColumn(name="opportunity_id")
+	//private List<Activity> activities;
 
-	public int getOpportunityId() {
+	public long getOpportunityId() {
 		return opportunityId;
 	}
 
-	public void setOpportunityId(int opportunityId) {
+	public void setOpportunityId(long opportunityId) {
 		this.opportunityId = opportunityId;
 	}
 
@@ -81,14 +108,6 @@ public class Opportunity {
 		this.durationInWeeks = durationInWeeks;
 	}
 
-	public double getDurationInMonths() {
-		return durationInMonths;
-	}
-
-	public void setDurationInMonths(double durationInMonths) {
-		this.durationInMonths = durationInMonths;
-	}
-
 	public Timestamp getProjectStartDate() {
 		return projectStartDate;
 	}
@@ -97,12 +116,12 @@ public class Opportunity {
 		this.projectStartDate = projectStartDate;
 	}
 
-	public String getProjectStatus() {
-		return projectStatus;
+	public String getOpportunityStatus() {
+		return opportunityStatus;
 	}
 
-	public void setProjectStatus(String projectStatus) {
-		this.projectStatus = projectStatus;
+	public void setOpportunityStatus(String opportunityStatus) {
+		this.opportunityStatus = opportunityStatus;
 	}
 
 	public String getDocumentStatus() {
@@ -121,14 +140,6 @@ public class Opportunity {
 		this.clientName = clientName;
 	}
 
-	public String getProjectSite() {
-		return projectSite;
-	}
-
-	public void setProjectSite(String projectSite) {
-		this.projectSite = projectSite;
-	}
-
 	public String getProjectAlias() {
 		return projectAlias;
 	}
@@ -137,13 +148,13 @@ public class Opportunity {
 		this.projectAlias = projectAlias;
 	}
 
-	public List<Activity> getActivities() {
+	/*public List<Activity> getActivities() {
 		return activities;
 	}
 
 	public void setActivities(List<Activity> activities) {
 		this.activities = activities;
-	}
+	}*/
 
 
 }
