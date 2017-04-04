@@ -5,16 +5,18 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
-//@Entity
+@Entity
+@Table(name="ref_role")
 public class Role {
 
-//	@Id
-//	@GeneratedValue(strategy = GenerationType.AUTO)
-//	@Column(name="role_id")
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name="role_id")
 	private int roleId;
 	
-//	@Column(name="role_name")
+	@Column(name="role_name")
 	private String roleName;
 
 	public int getRoleId() {

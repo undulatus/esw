@@ -1,20 +1,44 @@
 package com.pointwest.workforce.planner.domain;
 
-import java.util.Map;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="resource_specification")
 public class ResourceSpecification {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name="resource_specification_id")
 	private int resourceSpecificationId;
 	
+	@OneToOne
+	@JoinColumn(name="role_id")
 	private Role role;
 	
+	@OneToOne
+	@JoinColumn(name="practice_id")
 	private Practice practice;
 	
+	@OneToOne
+	@JoinColumn(name="pay_level_id")
 	private PayLevel payLevel;
 	
+	@Column(name="resource_specification_is_billable",columnDefinition="INT(1)")
 	private boolean isBillable;
 	
-	private Map<Integer,Double> WeeklyFTE;
+//	@ManyToOne
+//	@JoinColumn(name="opportunity_activity_id")
+	private long opportunityActivityId;
+	
+//	private Map<Integer,Double> WeeklyFTE;
+	
 
 	public int getResourceSpecificationId() {
 		return resourceSpecificationId;
@@ -56,13 +80,14 @@ public class ResourceSpecification {
 		this.isBillable = isBillable;
 	}
 
-	public Map<Integer, Double> getWeeklyFTE() {
-		return WeeklyFTE;
+	public long getOpportunityActivityId() {
+		return opportunityActivityId;
 	}
 
-	public void setWeeklyFTE(Map<Integer, Double> weeklyFTE) {
-		WeeklyFTE = weeklyFTE;
+	public void setOpportunityActivityId(long opportunityActivityId) {
+		this.opportunityActivityId = opportunityActivityId;
 	}
+	
 	
 	
 }

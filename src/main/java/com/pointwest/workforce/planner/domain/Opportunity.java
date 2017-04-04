@@ -1,18 +1,23 @@
 package com.pointwest.workforce.planner.domain;
 
 import java.sql.Timestamp;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import org.hibernate.annotations.DynamicUpdate;
 
 @Entity
 @Table(name="opportunity")
+@DynamicUpdate
 public class Opportunity {
 	
 	public Opportunity() {
@@ -56,9 +61,8 @@ public class Opportunity {
 	@Column(name="opportunity_project_alias")
 	private String projectAlias;
 	
-	//@OneToMany
-	//@JoinColumn(name="opportunity_id")
-	//private List<Activity> activities;
+	@OneToMany(mappedBy = "opportunityId", cascade = CascadeType.ALL)
+	private List<OpportunityActivity> opportunityActivities;
 
 	public long getOpportunityId() {
 		return opportunityId;
@@ -148,13 +152,14 @@ public class Opportunity {
 		this.projectAlias = projectAlias;
 	}
 
-	/*public List<Activity> getActivities() {
-		return activities;
+	public List<OpportunityActivity> getOpportunityActivities() {
+		return opportunityActivities;
 	}
 
-	public void setActivities(List<Activity> activities) {
-		this.activities = activities;
-	}*/
+	public void setOpportunityActivities(List<OpportunityActivity> opportunityActivities) {
+		this.opportunityActivities = opportunityActivities;
+	}
+
 
 
 }

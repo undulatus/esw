@@ -12,7 +12,7 @@ public interface OpportunityService {
 
 	public int addOpportunity(Opportunity opportunity);
 
-//	public int updateOpportunity(int opportunityId, Opportunity opportunity);
+	public int updateOpportunity(Opportunity opportunity);
 
 	
 }

@@ -32,10 +32,11 @@ public class OpportunityController {
     public void addOpportunity(@RequestBody Opportunity opportunity) {
        opportunityService.addOpportunity(opportunity);
     }
-//	
-//	@RequestMapping(method=RequestMethod.PUT, value="/opportunities/{opportunityId}")
-//    public void updateOpportunity(int opportunityId, Opportunity opportunity) {
-//       opportunityService.updateOpportunity(opportunityId, opportunity);
-//    }
+	
+	@RequestMapping(method=RequestMethod.PUT, value="/opportunities/{opportunityId}")
+    public void updateOpportunity(@PathVariable long opportunityId, Opportunity opportunity) {
+	//id placed for standards/convention... you can use it to log
+       opportunityService.updateOpportunity(opportunity);
+    }
 
 }

@@ -46,12 +46,13 @@ public class OpportunityServiceImpl implements OpportunityService {
 		Opportunity saved = opportunityRepository.save(opportunity);
 		return saved != null ?  1 : 0;
 	}
-//	
-//	@Override
-//	public int updateOpportunity(int opportunityId, Opportunity opportunity) {
-//		Opportunity saved = opportunityRepository.save(opportunity);
-//		return saved != null ?  1 : 0;
-//	}
-//	
+	
+	@Override
+	public int updateOpportunity(Opportunity opportunity) {
+		Opportunity saved = opportunityRepository.save(opportunity);
+//		bry use id to log 
+		return saved != null ?  1 : 0;
+	}
+	
 
 }

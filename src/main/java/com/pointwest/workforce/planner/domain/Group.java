@@ -5,16 +5,18 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
-//@Entity
+@Entity
+@Table(name="ref_group")
 public class Group {
 
-//	@Id
-//	@GeneratedValue(strategy = GenerationType.AUTO)
-//	@Column(name="group_id")
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name="group_id")
 	private int groupId;
 	
-//	@Column(name="group_name")
+	@Column(name="group_name")
 	private String groupName;
 
 	public int getGroupId() {
