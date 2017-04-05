@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
-import com.pointwest.workforce.planner.domain.Activity;
 import com.pointwest.workforce.planner.domain.Opportunity;
 
 public interface OpportunityRepository extends CrudRepository<Opportunity, Long> {
