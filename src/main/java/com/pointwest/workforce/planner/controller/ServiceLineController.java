@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.pointwest.workforce.planner.domain.MarketCircle;
 import com.pointwest.workforce.planner.domain.ServiceLine;
 import com.pointwest.workforce.planner.service.ReferenceDataService;
 

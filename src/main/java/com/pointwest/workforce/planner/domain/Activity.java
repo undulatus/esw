@@ -19,7 +19,7 @@ public class Activity {
 	@Column(name="activity_name")
 	private String activityName;
 	
-	@Column(name="activity_is_custom")
+	@Column(name="activity_is_custom", columnDefinition="INT(1)")
 	private boolean isCustom;
 
 	public int getActivityId() {
