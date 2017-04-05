@@ -8,6 +8,10 @@ import javax.persistence.Table;
 @Entity
 @Table(name="ref_service_line")
 public class ServiceLine {
+	
+	public ServiceLine() {
+		super();
+	}
 
 	@Id
 	@Column(name="service_line_id")

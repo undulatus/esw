@@ -17,6 +17,10 @@ import javax.persistence.Table;
 @Entity
 @Table(name="opportunity_activity")
 public class OpportunityActivity {
+	
+	public OpportunityActivity() {
+		super();
+	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

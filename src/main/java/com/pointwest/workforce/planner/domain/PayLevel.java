@@ -11,6 +11,10 @@ import javax.persistence.Table;
 @Table(name="ref_pay_level")
 public class PayLevel {
 
+	public PayLevel() {
+		super();
+	}
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="pay_level_id")

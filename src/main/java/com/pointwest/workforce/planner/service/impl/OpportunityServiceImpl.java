@@ -53,6 +53,12 @@ public class OpportunityServiceImpl implements OpportunityService {
 //		bry use id to log 
 		return saved != null ?  1 : 0;
 	}
+
+	@Override
+	public List<Opportunity> fetchOpportunityList() {
+		List<Opportunity> opportunityList = opportunityRepository.findOpportunityList();
+		return opportunityList;
+	}
 	
 
 }

@@ -14,5 +14,5 @@ public interface OpportunityService {
 
 	public int updateOpportunity(Opportunity opportunity);
 
-	
+	public List<Opportunity> fetchOpportunityList();
 }

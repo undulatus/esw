@@ -10,6 +10,10 @@ import javax.persistence.Table;
 @Entity
 @Table(name="ref_role")
 public class Role {
+	
+	public Role() {
+		super();
+	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

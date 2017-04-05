@@ -10,6 +10,10 @@ import javax.persistence.Table;
 @Entity
 @Table(name="ref_activity")
 public class Activity {
+	
+	public Activity() {
+		super();
+	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

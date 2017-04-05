@@ -1,17 +1,25 @@
 package com.pointwest.workforce.planner.domain;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="resource_specification")
 public class ResourceSpecification {
+	
+	public ResourceSpecification() {
+		super();
+	}
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -37,7 +45,8 @@ public class ResourceSpecification {
 //	@JoinColumn(name="opportunity_activity_id")
 	private long opportunityActivityId;
 	
-//	private Map<Integer,Double> WeeklyFTE;
+	@OneToMany(mappedBy = "key.resourceSpecificationId", cascade = CascadeType.ALL)
+	private List<WeeklyFTE> resourceSchedule;
 	
 
 	public int getResourceSpecificationId() {
@@ -86,6 +95,14 @@ public class ResourceSpecification {
 
 	public void setOpportunityActivityId(long opportunityActivityId) {
 		this.opportunityActivityId = opportunityActivityId;
+	}
+
+	public List<WeeklyFTE> getResourceSchedule() {
+		return resourceSchedule;
+	}
+
+	public void setResourceSchedule(List<WeeklyFTE> resourceSchedule) {
+		this.resourceSchedule = resourceSchedule;
 	}
 	
 	

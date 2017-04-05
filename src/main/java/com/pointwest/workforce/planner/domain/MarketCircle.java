@@ -8,6 +8,10 @@ import javax.persistence.Table;
 @Entity
 @Table(name="ref_market_circle")
 public class MarketCircle {
+	
+	public MarketCircle() {
+		super();
+	}
 
 	@Id
 	@Column(name="market_circle_id")

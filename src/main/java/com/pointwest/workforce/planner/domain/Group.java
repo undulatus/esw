@@ -11,6 +11,10 @@ import javax.persistence.Table;
 @Table(name="ref_group")
 public class Group {
 
+	public Group() {
+		super();
+	}
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="group_id")
