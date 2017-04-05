@@ -9,12 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.pointwest.workforce.planner.domain.Activity;
 import com.pointwest.workforce.planner.domain.Opportunity;
-import com.pointwest.workforce.planner.domain.Practice;
-import com.pointwest.workforce.planner.domain.Role;
 import com.pointwest.workforce.planner.service.OpportunityService;
-import com.pointwest.workforce.planner.service.TemplateDataService;
 
 @RestController
 public class OpportunityController {
