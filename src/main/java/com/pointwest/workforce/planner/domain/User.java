@@ -46,6 +46,5 @@ public class User {
 	public void setEmployeeId(int employeeId) {
 		this.employeeId = employeeId;
 	}
-
 	
 }

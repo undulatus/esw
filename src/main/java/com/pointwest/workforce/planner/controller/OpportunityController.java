@@ -33,16 +33,16 @@ public class OpportunityController {
        return opportunityService.fetchOpportunitiesByUsername(username);
     }
 	
-	@RequestMapping(method=RequestMethod.POST, value="/opportunities")
-    public void addOpportunity(@RequestBody Opportunity opportunity) {
-       opportunityService.addOpportunity(opportunity);
+	@RequestMapping(method=RequestMethod.POST, value="/workforce/opportunities")
+    public void saveOpportunity(@RequestBody Opportunity opportunity) {
+       opportunityService.saveOpportunity(opportunity);
     }
 	
-	@RequestMapping(method=RequestMethod.PUT, value="/opportunities/{opportunityId}")
+	/*@RequestMapping(method=RequestMethod.PUT, value="/workforce/opportunities/{opportunityId}")
     public void updateOpportunity(@PathVariable long opportunityId, Opportunity opportunity) {
 	//id placed for standards/convention... you can use it to log
        opportunityService.updateOpportunity(opportunity);
-    }
+    }*/
 	
 	@RequestMapping(method=RequestMethod.POST, value="/opportunities/{opportunityId}/lock/{lock}")
     public void updateOpportunityLock(@PathVariable long opportunityId, @PathVariable boolean lock) {

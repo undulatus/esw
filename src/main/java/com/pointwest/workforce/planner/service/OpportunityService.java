@@ -10,9 +10,9 @@ public interface OpportunityService {
 
 	public Opportunity fetchOpportunity(long opportunityId);
 
-	public int addOpportunity(Opportunity opportunity);
+	public int saveOpportunity(Opportunity opportunity);
 
-	public int updateOpportunity(Opportunity opportunity);
+	//public int updateOpportunity(Opportunity opportunity);
 
 	public List<Opportunity> fetchOpportunityList();
 	
