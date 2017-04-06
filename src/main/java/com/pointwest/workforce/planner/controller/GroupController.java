@@ -7,12 +7,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.pointwest.workforce.planner.domain.Role;
+import com.pointwest.workforce.planner.domain.Group;
 import com.pointwest.workforce.planner.service.ReferenceDataService;
 import com.pointwest.workforce.planner.service.TemplateDataService;
 
 @RestController
-public class RoleController {
+public class GroupController {
 	
 	@Autowired
 	ReferenceDataService referenceDataService;
@@ -20,19 +20,15 @@ public class RoleController {
 	@Autowired
 	TemplateDataService templateDataService;
 	
-	@RequestMapping("/workforce/roles")
-    public List<Role> fetchAllRole() {
-       return referenceDataService.fetchAllRole();
+	@RequestMapping("/workforce/groups")
+    public List<Group> fetchAllGroup() {
+       return referenceDataService.fetchAllGroup();
     }
 	
-	@RequestMapping("/workforce/roles/{roleId}")
-    public Role fetchRole(@PathVariable int roleId) {
-       return referenceDataService.fetchRole(roleId);
+	@RequestMapping("/workforce/groups/{groupId}")
+    public Group fetchGroup(@PathVariable int groupId) {
+       return referenceDataService.fetchGroup(groupId);
     }
 	
-	@RequestMapping("/workforce/servicelines/{serviceLineId}/roles")
-    public List<Role> fetchRolesByServiceLineId(@PathVariable int serviceLineId) {
-       return templateDataService.fetchRolesByServiceLineId(serviceLineId);
-    }
 
 }

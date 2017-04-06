@@ -20,17 +20,17 @@ public class PracticeController {
 	@Autowired
 	TemplateDataService templateDataService;
 	
-	@RequestMapping("/practices")
+	@RequestMapping("/workforce/practices")
     public List<Practice> fetchAllPractice() {
        return referenceDataService.fetchAllPractice();
     }
 	
-	@RequestMapping("/practices/{practiceId}")
+	@RequestMapping("/workforce/practices/{practiceId}")
     public Practice fetchPractice(@PathVariable int practiceId) {
        return referenceDataService.fetchPractice(practiceId);
     }
 	
-	@RequestMapping("roles/{roleId}/practices")
+	@RequestMapping("/workforce/roles/{roleId}/practices")
     public List<Practice> fetchPracticesByRoleId(@PathVariable int roleId) {
        return templateDataService.fetchPracticesByRoleId(roleId);
     }

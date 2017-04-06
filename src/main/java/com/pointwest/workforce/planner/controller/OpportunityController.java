@@ -18,17 +18,17 @@ public class OpportunityController {
 	@Autowired
 	OpportunityService opportunityService;
 	
-	@RequestMapping("/opportunities")
+	@RequestMapping("/workforce/opportunities")
     public List<Opportunity> fetchAllOpportunities() {
        return opportunityService.fetchAllOpportunities();
     }
 	
-	@RequestMapping("/opportunities/{opportunityId}")
+	@RequestMapping("/workforce/opportunities/{opportunityId}")
     public Opportunity fetchOpportunity(@PathVariable int opportunityId) {
        return opportunityService.fetchOpportunity(opportunityId);
     }
 	
-	@RequestMapping("users/{username}/opportunities/")
+	@RequestMapping("/workforce/users/{username}/opportunities/")
     public List<Opportunity> fetchOpportunity(@PathVariable String username) {
        return opportunityService.fetchOpportunitiesByUsername(username);
     }

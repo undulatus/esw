@@ -18,12 +18,12 @@ public class ServiceLineController {
 	@Autowired
 	ReferenceDataService referenceDataService;
 	
-	@RequestMapping("/servicelines")
+	@RequestMapping("/workforce/servicelines")
     public List<ServiceLine> fetchAllServicLine() {
        return referenceDataService.fetchAllServiceLine();
     }
 	
-	@RequestMapping("/servicelines/{serviceLineId}")
+	@RequestMapping("/workforce/servicelines/{serviceLineId}")
     public ServiceLine fetchServiceLine(@PathVariable int serviceLineId) {
        return referenceDataService.fetchServiceLine(serviceLineId);
     }

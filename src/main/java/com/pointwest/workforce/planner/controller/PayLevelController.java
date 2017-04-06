@@ -10,12 +10,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.pointwest.workforce.planner.domain.Activity;
+import com.pointwest.workforce.planner.domain.PayLevel;
 import com.pointwest.workforce.planner.domain.ServiceLine;
 import com.pointwest.workforce.planner.service.ReferenceDataService;
 import com.pointwest.workforce.planner.service.TemplateDataService;
 
 @RestController
-public class ActivityController {
+public class PayLevelController {
 	
 	@Autowired
 	ReferenceDataService referenceDataService;
@@ -23,19 +24,15 @@ public class ActivityController {
 	@Autowired
 	TemplateDataService templateDataService;
 	
-	@RequestMapping("/workforce/activities")
-    public List<Activity> fetchAllActivity() {
-       return referenceDataService.fetchAllActivity();
+	@RequestMapping("/workforce/paylevels")
+    public List<PayLevel> fetchAllPayLevel() {
+       return referenceDataService.fetchAllPayLevel();
     }
 	
-	@RequestMapping("/workforce/activities/{activityId}")
-    public Activity fetchActivity(@PathVariable int activityId) {
-       return referenceDataService.fetchActivity(activityId);
+	@RequestMapping("/workforce/paylevels/{payLevelId}")
+    public PayLevel fetchActivity(@PathVariable int payLevelId) {
+       return referenceDataService.fetchPayLevel(payLevelId);
     }
 	
-	@RequestMapping("/workforce/servicelines/{serviceLineId}/activities")
-    public List<Activity> fetchActivitiesByServiceLineId(@PathVariable int serviceLineId) {
-       return templateDataService.fetchActivitiesByServiceLineId(serviceLineId);
-    }
 
 }
