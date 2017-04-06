@@ -6,11 +6,14 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.pointwest.workforce.planner.WorkforcePlannerApplication;
+import com.pointwest.workforce.planner.data.OpportunityLockEntityRepository;
 import com.pointwest.workforce.planner.data.OpportunityRepository;
 import com.pointwest.workforce.planner.domain.Opportunity;
+import com.pointwest.workforce.planner.domain.OpportunityLockEntity;
 import com.pointwest.workforce.planner.service.OpportunityService;
 import com.pointwest.workforce.planner.service.ReferenceDataService;
 
@@ -21,7 +24,16 @@ public class OpportunityServiceImpl implements OpportunityService {
 	public OpportunityRepository opportunityRepository;
 	
 	@Autowired
+	public OpportunityLockEntityRepository opportunityEntityRepository;
+	
+	@Autowired
 	public ReferenceDataService referenceDataService;
+	
+	@Value("${opportunity.documentstatus.locked}")
+	private String LOCKED;
+	
+	@Value("${opportunity.documentstatus.unlocked}")
+	private String UNLOCKED;
 	
 	private static final Logger log = LoggerFactory.getLogger(WorkforcePlannerApplication.class);
 	
@@ -59,6 +71,25 @@ public class OpportunityServiceImpl implements OpportunityService {
 		List<Opportunity> opportunityList = opportunityRepository.findOpportunityList();
 		return opportunityList;
 	}
+
+	//@Override
+	public boolean lockOpportunityPre(long opportunityId, boolean lock) {
+		String documentStatus = (lock == true ? LOCKED : UNLOCKED);
+		opportunityRepository.updateOpportunityDocumentStatus(opportunityId, documentStatus);
+		return true;
+	}
 	
+	@Override
+	public int lockOpportunity(long opportunityId, boolean lock) {
+		String documentStatus = (lock == true ? LOCKED : UNLOCKED);
+		OpportunityLockEntity opportunity = new OpportunityLockEntity(opportunityId, documentStatus);
+		OpportunityLockEntity saved = opportunityEntityRepository.save(opportunity);
+		return saved != null ?  1 : 0;
+	}
+
+	@Override
+	public List<Opportunity> fetchOpportunitiesByUsername(String username) {
+		return opportunityRepository.findByUserUsername(username);
+	}
 
 }

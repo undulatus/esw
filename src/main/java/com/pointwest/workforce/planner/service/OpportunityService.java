@@ -15,4 +15,8 @@ public interface OpportunityService {
 	public int updateOpportunity(Opportunity opportunity);
 
 	public List<Opportunity> fetchOpportunityList();
+	
+	public int lockOpportunity(long opportunityId, boolean lock);
+	
+	public List<Opportunity> fetchOpportunitiesByUsername(String username);
 }

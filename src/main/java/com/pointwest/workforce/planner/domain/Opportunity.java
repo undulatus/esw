@@ -6,7 +6,6 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -16,8 +15,6 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.DynamicUpdate;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name="opportunity")
@@ -64,6 +61,10 @@ public class Opportunity {
 	
 	@Column(name="opportunity_project_alias")
 	private String projectAlias;
+	
+	@OneToOne
+	@JoinColumn(name="username")
+	private User user;
 	
 	@OneToMany(mappedBy = "opportunityId", cascade = CascadeType.ALL)
 	private List<OpportunityActivity> opportunityActivities;
@@ -164,6 +165,13 @@ public class Opportunity {
 		this.opportunityActivities = opportunityActivities;
 	}
 
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
 
 
 }

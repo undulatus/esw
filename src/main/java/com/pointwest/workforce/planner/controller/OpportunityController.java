@@ -28,6 +28,11 @@ public class OpportunityController {
        return opportunityService.fetchOpportunity(opportunityId);
     }
 	
+	@RequestMapping("users/{username}/opportunities/")
+    public List<Opportunity> fetchOpportunity(@PathVariable String username) {
+       return opportunityService.fetchOpportunitiesByUsername(username);
+    }
+	
 	@RequestMapping(method=RequestMethod.POST, value="/opportunities")
     public void addOpportunity(@RequestBody Opportunity opportunity) {
        opportunityService.addOpportunity(opportunity);
@@ -37,6 +42,11 @@ public class OpportunityController {
     public void updateOpportunity(@PathVariable long opportunityId, Opportunity opportunity) {
 	//id placed for standards/convention... you can use it to log
        opportunityService.updateOpportunity(opportunity);
+    }
+	
+	@RequestMapping(method=RequestMethod.POST, value="/opportunities/{opportunityId}/lock/{lock}")
+    public void updateOpportunityLock(@PathVariable long opportunityId, @PathVariable boolean lock) {
+		opportunityService.lockOpportunity(opportunityId, lock);
     }
 
 }
