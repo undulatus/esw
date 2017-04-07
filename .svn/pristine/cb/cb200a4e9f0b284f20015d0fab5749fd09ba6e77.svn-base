@@ -1,0 +1,50 @@
+package com.pointwest.workforce.planner.controller;
+
+import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.pointwest.workforce.planner.domain.MarketCircle;
+import com.pointwest.workforce.planner.service.ReferenceDataService;
+
+@RestController
+public class MarketCircleController {
+	private static final Logger log = LoggerFactory.getLogger(MarketCircleController.class);
+	
+	@Autowired
+	ReferenceDataService referenceDataService;
+	
+	@RequestMapping("/workforce/marketcircles")
+    public List<MarketCircle> fetchAllMarketCircle() {
+       return referenceDataService.fetchAllMarketCircle();
+    }
+	
+	@RequestMapping("/workforce/marketcircles/{marketCircleId}")
+    public MarketCircle fetchMarketCircle(@PathVariable int marketCircleId) {
+       return referenceDataService.fetchMarketCircle(marketCircleId);
+    }
+	
+	@RequestMapping(method=RequestMethod.POST, value="/marketcircles")
+    public void addMarketCircle(@RequestBody MarketCircle marketCircle) {
+		referenceDataService.addMarketCircle(marketCircle);
+    }
+	
+	@RequestMapping(method=RequestMethod.PUT, value="/marketcircles/{marketCircleId}")
+    public void updateMarketCircle(@RequestBody MarketCircle marketCircle, Integer marketCircleId) {
+		referenceDataService.updateMarketCircle(marketCircleId, marketCircle);
+    }
+	
+	//from dan
+	/*@RequestMapping("/workforce/marketcircles")
+    public List<MarketCircle> findAll() {
+       return marketCircleServ.findAll();
+    }*/
+
+}

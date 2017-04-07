@@ -1,0 +1,35 @@
+package com.pointwest.workforce.planner.service.impl;
+
+import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.pointwest.workforce.planner.WorkforcePlannerApplication;
+import com.pointwest.workforce.planner.data.MarketCircleRepository;
+import com.pointwest.workforce.planner.domain.MarketCircle;
+import com.pointwest.workforce.planner.service.MarketCircleService;
+
+@Service
+public class MarketCircleServiceImpl implements MarketCircleService {
+	private static final Logger log = LoggerFactory.getLogger(WorkforcePlannerApplication.class);
+	@Autowired
+	MarketCircleRepository marketCircleRepository;
+
+	@Override
+	public List<MarketCircle> findAll() {
+		List<MarketCircle> marketCircles = marketCircleRepository.findAll();
+		log.info("MarketCircle found with findAll():");
+		log.info("-------------------------------");
+		for (MarketCircle marketCircle : marketCircles) {
+//			log.info(marketCircle.getMarketCircleId());
+			log.info(marketCircle.getMarketCircleName());
+		}
+		log.info("");
+		
+		return marketCircles;
+	}
+
+}

@@ -1,0 +1,44 @@
+package com.pointwest.workforce.planner.controller;
+
+import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.pointwest.workforce.planner.data.MarketCircleRepository;
+import com.pointwest.workforce.planner.domain.MarketCircle;
+import com.pointwest.workforce.planner.service.impl.MarketCircleServiceImpl;
+
+@RestController
+public class MarketCircleController {
+	private static final Logger log = LoggerFactory.getLogger(MarketCircleController.class);
+	
+	@Autowired
+	MarketCircleRepository repo;
+	
+	@Autowired
+	MarketCircleServiceImpl marketCircleServ;
+	
+//	@RequestMapping("/marketCircles")
+//    public List<MarketCircle> findAll() {
+//       return marketCircleServ.findAll();
+//    }
+	
+	@RequestMapping("/workforce/marketcircles")
+    public List<MarketCircle> findAll() {
+       return marketCircleServ.findAll();
+    }
+	
+//	@RequestMapping("/workforce/marketCircles")
+//	public List<MarketCircle> findAll(@PathVariable(){
+//		log.debug("other list");
+//		for(MarketCircle mc : getOpportunityList()){
+//			log.debug("Market Circles: " + mc.toString());
+//		}
+//		return getOpportunityList();
+//	}
+	
+}

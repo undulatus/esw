@@ -1,0 +1,41 @@
+package com.pointwest.workforce.planner.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.pointwest.workforce.planner.domain.Opportunity;
+import com.pointwest.workforce.planner.service.OpportunityService;
+
+@RestController
+public class OpportunityController {
+	
+	@Autowired
+	OpportunityService opportunityService;
+	
+	@RequestMapping("/opportunities")
+    public List<Opportunity> fetchAllOpportunities() {
+       return opportunityService.fetchAllOpportunities();
+    }
+	
+	@RequestMapping("/opportunities/{opportunityId}")
+    public Opportunity fetchOpportunity(@PathVariable int opportunityId) {
+       return opportunityService.fetchOpportunity(opportunityId);
+    }
+	
+	@RequestMapping(method=RequestMethod.POST, value="/opportunities")
+    public void addOpportunity(@RequestBody Opportunity opportunity) {
+       opportunityService.addOpportunity(opportunity);
+    }
+//	
+//	@RequestMapping(method=RequestMethod.PUT, value="/opportunities/{opportunityId}")
+//    public void updateOpportunity(int opportunityId, Opportunity opportunity) {
+//       opportunityService.updateOpportunity(opportunityId, opportunity);
+//    }
+
+}
