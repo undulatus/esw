@@ -54,9 +54,9 @@ public class OpportunityServiceImpl implements OpportunityService {
 	}
 	
 	@Override
-	public int saveOpportunity(Opportunity opportunity) {
+	public Opportunity saveOpportunity(Opportunity opportunity) {
 		Opportunity saved = opportunityRepository.save(opportunity);
-		return saved != null ?  1 : 0;
+		return saved;
 	}
 	
 	/*@Override
