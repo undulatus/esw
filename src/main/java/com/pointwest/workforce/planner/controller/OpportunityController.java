@@ -48,7 +48,7 @@ public class OpportunityController {
 		} else {
 			retrievedOpportunity = opportunityService.saveOpportunity(opportunity);
 		}
-		if(retrievedOpportunity.equals(null)) {
+		if(retrievedOpportunity==null) {
 			return new ResponseEntity<>(opportunity, HttpStatus.BAD_REQUEST);
 		} else {
 			return new ResponseEntity<Opportunity>(retrievedOpportunity, HttpStatus.CREATED);
