@@ -10,7 +10,7 @@ public interface OpportunityService {
 
 	public Opportunity fetchOpportunity(long opportunityId);
 
-	public int saveOpportunity(Opportunity opportunity);
+	public Opportunity saveOpportunity(Opportunity opportunity);
 
 	//public int updateOpportunity(Opportunity opportunity);
 
