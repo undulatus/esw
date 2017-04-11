@@ -41,11 +41,18 @@ public class OpportunityController {
     }
 	
 	@RequestMapping(method=RequestMethod.POST, value="/workforce/opportunities")
-    public ResponseEntity<Opportunity> saveOpportunity(@RequestBody Opportunity opportunity) {
-       if(opportunityService.saveOpportunity(opportunity) == 1) {
-    	   return new ResponseEntity<Opportunity>(opportunity, HttpStatus.CREATED);
-       }
-       return new ResponseEntity<>(opportunity, HttpStatus.BAD_REQUEST);
+    public ResponseEntity<Opportunity> saveOpportunity(@RequestBody(required=false) Opportunity opportunity) {
+		Opportunity retrievedOpportunity = null;
+		if(opportunity==null) {
+			retrievedOpportunity = opportunityService.saveOpportunity(new Opportunity());
+		} else {
+			retrievedOpportunity = opportunityService.saveOpportunity(opportunity);
+		}
+		if(retrievedOpportunity==null) {
+			return new ResponseEntity<>(opportunity, HttpStatus.BAD_REQUEST);
+		} else {
+			return new ResponseEntity<Opportunity>(retrievedOpportunity, HttpStatus.CREATED);
+		}
     }
 	
 	/*@RequestMapping(method=RequestMethod.PUT, value="/workforce/opportunities/{opportunityId}")
