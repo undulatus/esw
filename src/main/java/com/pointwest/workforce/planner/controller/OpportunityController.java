@@ -65,11 +65,6 @@ public class OpportunityController {
 		}
     }
 	
-	/*@RequestMapping(method=RequestMethod.PUT, value="/opportunities/{opportunityId}")
-    public void updateOpportunity(@PathVariable long opportunityId, Opportunity opportunity) {
-	//id placed for standards/convention... you can use it to log
-       opportunityService.updateOpportunity(opportunity);
-    }*/
 	
 	@RequestMapping(method=RequestMethod.POST, value="/opportunities/{opportunityId}/lock/{lock}")
     public void updateOpportunityLock(@PathVariable long opportunityId, @PathVariable boolean lock) {
