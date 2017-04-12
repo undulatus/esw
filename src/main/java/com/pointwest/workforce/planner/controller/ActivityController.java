@@ -23,17 +23,17 @@ public class ActivityController {
 	@Autowired
 	TemplateDataService templateDataService;
 	
-	@RequestMapping("/workforce/activities")
+	@RequestMapping("/activities")
     public List<Activity> fetchAllActivity() {
        return referenceDataService.fetchAllActivity();
     }
 	
-	@RequestMapping("/workforce/activities/{activityId}")
+	@RequestMapping("/activities/{activityId}")
     public Activity fetchActivity(@PathVariable int activityId) {
        return referenceDataService.fetchActivity(activityId);
     }
 	
-	@RequestMapping("/workforce/servicelines/{serviceLineId}/activities")
+	@RequestMapping("/servicelines/{serviceLineId}/activities")
     public List<Activity> fetchActivitiesByServiceLineId(@PathVariable int serviceLineId) {
        return templateDataService.fetchActivitiesByServiceLineId(serviceLineId);
     }

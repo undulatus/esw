@@ -20,27 +20,27 @@ public class OpportunityController {
 	@Autowired
 	OpportunityService opportunityService;
 	
-	@RequestMapping("/workforce/opportunities")
+	@RequestMapping("/opportunities")
     public List<Opportunity> fetchAllOpportunities() {
        return opportunityService.fetchAllOpportunities();
     }
 	
-	@RequestMapping("/workforce/opportunities/{opportunityId}")
+	@RequestMapping("/opportunities/{opportunityId}")
     public Opportunity fetchOpportunity(@PathVariable int opportunityId) {
        return opportunityService.fetchOpportunity(opportunityId);
     }
 	
-	@RequestMapping("/workforce/users/{username}/opportunities")
+	@RequestMapping("/users/{username}/opportunities")
     public List<Opportunity> fetchOpportunity(@PathVariable String username) {
        return opportunityService.fetchOpportunitiesByUsername(username);
     }
 	
-	@RequestMapping("/workforce/users/{username}/opportunities/other")
+	@RequestMapping("/users/{username}/opportunities/other")
     public List<Opportunity> fetchNotOwnedOpportunity(@PathVariable String username) {
        return opportunityService.fetchNotOwnedOpportunitiesByUsername(username);
     }
 	
-	@RequestMapping(method=RequestMethod.POST, value="/workforce/opportunities")
+	@RequestMapping(method=RequestMethod.POST, value="/opportunities")
     public ResponseEntity<Opportunity> saveOpportunity(@RequestBody(required=false) Opportunity opportunity) {
 		Opportunity savedOpportunity = null;
 		boolean isNew = false;
@@ -65,7 +65,7 @@ public class OpportunityController {
 		}
     }
 	
-	/*@RequestMapping(method=RequestMethod.PUT, value="/workforce/opportunities/{opportunityId}")
+	/*@RequestMapping(method=RequestMethod.PUT, value="/opportunities/{opportunityId}")
     public void updateOpportunity(@PathVariable long opportunityId, Opportunity opportunity) {
 	//id placed for standards/convention... you can use it to log
        opportunityService.updateOpportunity(opportunity);

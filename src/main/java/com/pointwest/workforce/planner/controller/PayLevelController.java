@@ -20,12 +20,12 @@ public class PayLevelController {
 	@Autowired
 	TemplateDataService templateDataService;
 	
-	@RequestMapping("/workforce/paylevels")
+	@RequestMapping("/paylevels")
     public List<PayLevel> fetchAllPayLevel() {
        return referenceDataService.fetchAllPayLevel();
     }
 	
-	@RequestMapping("/workforce/paylevels/{payLevelId}")
+	@RequestMapping("/paylevels/{payLevelId}")
     public PayLevel fetchActivity(@PathVariable int payLevelId) {
        return referenceDataService.fetchPayLevel(payLevelId);
     }

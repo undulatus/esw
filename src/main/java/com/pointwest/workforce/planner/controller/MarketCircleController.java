@@ -18,12 +18,12 @@ public class MarketCircleController {
 	@Autowired
 	ReferenceDataService referenceDataService;
 	
-	@RequestMapping("/workforce/marketcircles")
+	@RequestMapping("/marketcircles")
     public List<MarketCircle> fetchAllMarketCircle() {
        return referenceDataService.fetchAllMarketCircle();
     }
 	
-	@RequestMapping("/workforce/marketcircles/{marketCircleId}")
+	@RequestMapping("/marketcircles/{marketCircleId}")
     public MarketCircle fetchMarketCircle(@PathVariable int marketCircleId) {
        return referenceDataService.fetchMarketCircle(marketCircleId);
     }

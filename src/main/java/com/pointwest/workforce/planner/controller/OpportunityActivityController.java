@@ -20,18 +20,18 @@ public class OpportunityActivityController {
 	@Autowired
 	OpportunityActivityService opportunityActivityService;
 	
-	@RequestMapping("/workforce/opportunityactivities")
+	@RequestMapping("/opportunityactivities")
     public List<OpportunityActivity> fetchAllOpportunities() {
        return opportunityActivityService.fetchAllOpportunityActivities();
     }
 	
-	@RequestMapping("/workforce/opportunityactivities/{opportunityActivityId}")
+	@RequestMapping("/opportunityactivities/{opportunityActivityId}")
     public OpportunityActivity fetchOpportunityActivity(@PathVariable int opportunityActivityId) {
        return opportunityActivityService.fetchOpportunityActivity(opportunityActivityId);
     }
 	
 
-	@RequestMapping(method=RequestMethod.POST, value="/workforce/opportunityactivities")
+	@RequestMapping(method=RequestMethod.POST, value="/opportunityactivities")
     public ResponseEntity<OpportunityActivity> saveOpportunityActivity(@RequestBody(required=false) OpportunityActivity opportunityActivity) {
 		OpportunityActivity savedOpportunityActivity = null;
 		boolean isNew = false;

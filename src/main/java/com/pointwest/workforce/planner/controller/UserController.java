@@ -14,7 +14,7 @@ public class UserController {
 	@Autowired
 	UserService userService;
 	
-	@RequestMapping("/workforce/users/{username}")
+	@RequestMapping("/users/{username}")
     public User fetchUser(@PathVariable String username) {
        return userService.fetchUser(username);
     }

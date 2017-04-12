@@ -24,19 +24,19 @@ public class VersionController {
 	@Autowired
 	JsonParser parser;
 	
-	@RequestMapping("/workforce/roles")
+	@RequestMapping("/roles")
     public List<Role> fetchAllRole() {
        return referenceDataService.fetchAllRole();
     }
 	
-	@RequestMapping("/workforce/roles/{roleId}")
+	@RequestMapping("/roles/{roleId}")
     public Role fetchRole(@PathVariable int roleId) {
 		
 		//Map<String,Object> resMap = this.parser.parseMap(EntityUtils.toString(response.getEntity()));
        return referenceDataService.fetchRole(roleId);
     }
 	
-	@RequestMapping("/workforce/servicelines/{serviceLineId}/roles")
+	@RequestMapping("/servicelines/{serviceLineId}/roles")
     public List<Role> fetchRolesByServiceLineId(@PathVariable int serviceLineId) {
        return templateDataService.fetchRolesByServiceLineId(serviceLineId);
     }*/

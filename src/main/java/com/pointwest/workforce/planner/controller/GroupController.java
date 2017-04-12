@@ -20,12 +20,12 @@ public class GroupController {
 	@Autowired
 	TemplateDataService templateDataService;
 	
-	@RequestMapping("/workforce/groups")
+	@RequestMapping("/groups")
     public List<Group> fetchAllGroup() {
        return referenceDataService.fetchAllGroup();
     }
 	
-	@RequestMapping("/workforce/groups/{groupId}")
+	@RequestMapping("/groups/{groupId}")
     public Group fetchGroup(@PathVariable int groupId) {
        return referenceDataService.fetchGroup(groupId);
     }

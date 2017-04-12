@@ -20,17 +20,17 @@ public class RoleController {
 	@Autowired
 	TemplateDataService templateDataService;
 	
-	@RequestMapping("/workforce/roles")
+	@RequestMapping("/roles")
     public List<Role> fetchAllRole() {
        return referenceDataService.fetchAllRole();
     }
 	
-	@RequestMapping("/workforce/roles/{roleId}")
+	@RequestMapping("/roles/{roleId}")
     public Role fetchRole(@PathVariable int roleId) {
        return referenceDataService.fetchRole(roleId);
     }
 	
-	@RequestMapping("/workforce/servicelines/{serviceLineId}/roles")
+	@RequestMapping("/servicelines/{serviceLineId}/roles")
     public List<Role> fetchRolesByServiceLineId(@PathVariable int serviceLineId) {
        return templateDataService.fetchRolesByServiceLineId(serviceLineId);
     }
